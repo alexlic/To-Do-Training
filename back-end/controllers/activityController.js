@@ -13,3 +13,7 @@ const update = async function(req, res){
         
     }
 }
+
+module.exports = {
+    update
+}
