@@ -1,6 +1,7 @@
-const activityModel = require('../models/activity')
+const ActivityModel = require('../models/activity')
 
 const get = function ( req, res ) {
+    console.log(ActivityModel)
     ActivityModel.find({}).exec( (err, result) => {
         if(err){
           console.log(err)
