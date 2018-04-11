@@ -5,12 +5,6 @@ const activities = require('../models/activity')
 //read
 //update
 //delete
-const post = async (req, res) => {
-    const newSchema = new activities(req.body)
-    await newSchema.save()
-    res.json({newSchema})
-  }
-  
 
 const deleteOne = async function (req, res) {
   await activities.findOneAndRemove({_id: req.params.id}, function(err, acttivity){
@@ -24,6 +18,5 @@ const deleteOne = async function (req, res) {
 }
 
 module.exports = {
-  post,
   deleteOne
 }

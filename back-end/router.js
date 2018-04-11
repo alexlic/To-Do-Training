@@ -8,7 +8,7 @@ const listController = require('./controllers/listController.js')
 //READ
 //UPDATE
 //DELETE
-Router.post('/todolist', listController.post)
+
 Router.delete('/todolist/:id', listController.deleteOne)
 
 module.exports = Router
