@@ -4,16 +4,14 @@ const activities = require('../models/activity')
 //create
 //read
 //update
-//delete
 
+//delete
 const deleteOne = async function (req, res) {
   await activities.findOneAndRemove({_id: req.params.id}, function(err, acttivity){
       if(err){
-          res.status(500).send("Something went wrong tryng to delete the activity")
+          return res.status(500).send("Something went wrong tryng to delete the activity")
       }
-      else{
-          res.send("Activity deleted")
-      }
+      res.send("Activity deleted")
   })
 }
 
