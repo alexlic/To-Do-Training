@@ -3,4 +3,9 @@ const Router = express.Router()
 
 const activityController = require('./controllers/activityController')
 
-activityController.update('/activity/:id', activityController.update)
+
+Router.post('/todo-list', activityController.post)
+Router.put('/todo-list/:id', activityController.update)
+
+
+module.exports = Router
