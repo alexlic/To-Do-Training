@@ -1,6 +1,6 @@
 const express = require('express')
 const Router = express.Router()
-const listController = require('./controllers/listController.js')
+const listController = require('./controllers/list.js')
 
 //--------------------CRUD ROUTES------------------------
 
