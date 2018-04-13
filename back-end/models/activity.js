@@ -2,6 +2,7 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const activityModel = new Schema({
+  title: String,
   description: String
 })
 

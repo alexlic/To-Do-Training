@@ -1,8 +1,8 @@
 const express = require('express')
 const Router = express.Router()
 
-const activitiesController = require('./controllers/activitiesController')
+const activitiesController = require('./controllers/activities')
 
-Router.get('/activities', activitiesController.get)
+Router.get('/get-activities', activitiesController.getActivities)
 
 module.exports = Router
