@@ -1,6 +1,6 @@
 const express = require('express')
 const Router = express.Router()
-const activitiesController = require('./controllers/activities.js')
+const activitiesController = require('./controllers/activity.js')
 
 //--------------------CRUD ROUTES------------------------
 
