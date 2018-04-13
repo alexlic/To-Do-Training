@@ -6,4 +6,4 @@ const activityModel = new Schema({
   description: String
 })
 
-module.exports = mongoose.model('activity', activityModel)
+module.exports = mongoose.model('activities', activityModel)
