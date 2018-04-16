@@ -5,22 +5,22 @@ const getActivities = function ( req, res ) {
     ActivityModel.find({}).exec( (err, result) => {
         if(err){
             console.log(err)
-            return res.estatus(500).send({message: 'error in data data base'})
+            return res.status(500).json({message: 'error in data data base'})
         }
-        res.send(result)
+        res.json(result)
     })
 }
-//------------Add activities-----------
+//------------Add activity-----------
 
-//------------Update activities---------
+//------------Update activity---------
 
-//------------Delete activities---------
+//------------Delete activity---------
 const deleteOne = function (req, res) {
     ActivityModel.findOneAndRemove({_id: req.params.id}, function(err, acttivity){
         if(err){
-            return res.status(500).send("Something went wrong tryng to delete the activity")
+            return res.status(500).json({message:"Something went wrong tryng to delete the activity"})
         }
-        res.send({message: 'Activity deleted'})
+        res.json({message: 'Activity deleted'})
     })
 }
 
