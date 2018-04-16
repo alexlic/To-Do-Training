@@ -2,7 +2,8 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const activityModel = new Schema({
+  title: String,
   description: String
 })
 
-module.exports = mongoose.model('activity', activityModel)
+module.exports = mongoose.model('activities', activityModel)
