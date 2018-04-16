@@ -1,9 +1,11 @@
 const express = require('express')
 const app = express()
-const port = 4040
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
-mongoose.connect('mongodb://localhost/to-do-list')
+
+require('dotenv').config()
+const port = process.env.DB_PORT 
+mongoose.connect('mongodb://'+process.env.DB_HOST+'/'+process.env.DB_URL)
 
 var db = mongoose.connection
 db.on('error', console.error.bind(console, 'connection error:'))
