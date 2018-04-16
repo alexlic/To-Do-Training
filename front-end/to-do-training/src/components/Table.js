@@ -1,17 +1,28 @@
 import React, {Component} from 'react'
 import TableRow from './TableRow'
-import activitiesService from '../services/activity.service'
 
 export default class Table extends Component {
 
-  componentDidMount () {
-    const props = activitiesService.getActivities()
-    console.log(props)
-  }
-  render(){return(<h1>hola</h1>) }
+  constructor(props) {
+    super(props);
 
-  /*render () {
-    const {activities} = this.props   
+    this.state = {
+      title: '',
+      description: ''
+    };
+  }
+
+  componentDidMount () {
+    fetch('http://localhost:3001/todolist/get-activities')
+      .then(response => response.json())
+      .then(data => data.map( (data) => {
+        this.setState( {title: data.title, description: data.description}) 
+        console.log(data)
+      }));
+    console.log(this.state)
+  }
+
+  render () {
     return(
       <table>
         <thead>
@@ -20,10 +31,9 @@ export default class Table extends Component {
           </tr>
         </thead>
         <tbody>
-          {activities.map( a => <TableRow name={a.title} description={a.description}/>)}
+          
         </tbody>
       </table>
         )
-    }*/
-
+    }
 }
