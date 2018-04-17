@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import TableRow from './TableRow'
+import './Table.css'
 
 export default class Table extends Component {
 
@@ -7,33 +8,32 @@ export default class Table extends Component {
     super(props);
 
     this.state = {
-      title: '',
-      description: ''
+      activities: []
     };
   }
 
   componentDidMount () {
     fetch('http://localhost:3001/todolist/get-activities')
       .then(response => response.json())
-      .then(data => data.map( (data) => {
-        this.setState( {title: data.title, description: data.description}) 
-        console.log(data)
-      }));
-    console.log(this.state)
+      .then(data => 
+        this.setState({activities: data }) 
+      );
   }
 
   render () {
+    const { activities } = this.state
     return(
-      <table>
+      <table className="main-table">
         <thead>
-          <tr>
-            <th>Activities</th>          
+          <tr className="thead-row">
+            <th className="thead-row-content">TITLE</th>  
+            <th colSpan="2" className="thead-row-content">DESCRIPTION</th>          
           </tr>
         </thead>
         <tbody>
-          
+          { activities.map( activity => <TableRow title={activity.title} description={activity.description}/> ) }
         </tbody>
       </table>
-        )
+      )
     }
 }
