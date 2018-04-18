@@ -31,7 +31,7 @@ export default class Table extends Component {
           </tr>
         </thead>
         <tbody>
-          { activities.map( activity => <TableRow title={activity.title} description={activity.description}/> ) }
+          { activities.map( activity => <TableRow key={activity._id} id={activity._id} title={activity.title} description={activity.description}/> ) }
         </tbody>
       </table>
       )
