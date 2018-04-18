@@ -13,7 +13,7 @@ export default class Table extends Component {
   }
 
   componentDidMount () {
-    fetch('http://localhost:3001/todolist/get-activities')
+    fetch(process.env.REACT_APP_BACK_SERVER+'/todolist/get-activities')
       .then(response => response.json())
       .then(data => 
         this.setState({activities: data }) 
