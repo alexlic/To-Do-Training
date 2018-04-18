@@ -1,11 +1,12 @@
 const express = require('express')
 const app = express()
+require('dotenv').config()
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
+mongoose.connect(process.env.DATABASEURL)
+const cors = require('cors')
 
-require('dotenv').config()
 const port = process.env.DB_PORT 
-mongoose.connect('mongodb://'+process.env.DB_HOST+'/'+process.env.DB_URL)
 
 var db = mongoose.connection
 db.on('error', console.error.bind(console, 'connection error:'))
@@ -13,7 +14,7 @@ db.once('open', function() {
  console.log('connected successfuly')
 })
 
-app.use(bodyParser.urlencoded({ extended: false}))
+app.use(bodyParser.json(), cors() )
 
 const router = require('./router')
 

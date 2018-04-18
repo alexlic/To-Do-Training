@@ -1,7 +1,16 @@
 const ActivityModel = require('../models/activity')
-
+//Get Activities
+const getActivities = function ( req, res ) {
+  ActivityModel.find({}).exec( (err, result) => {
+      if(err){
+          console.log(err)
+          return res.estatus(500).send({message: 'error in data data base'})
+      }
+      res.send(result)
+  })
+}
 //Update activity on list 
-const update = async function (req, res) {
+const updateActivities = async function (req, res) {
     try {
       const id = await ActivityModel.findOneAndUpdate({ _id: req.params.id }, req.body)
       if(id){
@@ -14,6 +23,6 @@ const update = async function (req, res) {
     }
   }
 module.exports = {
-    update,
-    post
+    updateActivities,
+    getActivities
 }
